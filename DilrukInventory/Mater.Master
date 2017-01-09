@@ -1,0 +1,464 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Mater.master.cs" Inherits="DilrukInventory.Mater" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server"></asp:ContentPlaceHolder>
+    </title>
+    <!-- bootstrap & fontawesome -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+	<!-- page specific plugin styles -->
+
+	<!-- text fonts -->
+	<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+
+	<!-- ace styles -->
+	<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" />
+
+	<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+
+	<!-- ace settings handler -->
+	<script src="assets/js/ace-extra.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body class="no-skin">
+    <form id="form1" runat="server" class="form-horizontal">
+        <%-- nav bar --%>
+        <div id="navbar" class="navbar navbar-default ace-save-state">
+			    <div class="navbar-container ace-save-state" id="navbar-container">
+				    <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+					    <span class="sr-only">Toggle sidebar</span>
+
+					    <span class="icon-bar"></span>
+
+					    <span class="icon-bar"></span>
+
+					    <span class="icon-bar"></span>
+				    </button>
+
+				    <div class="navbar-header pull-left">
+					    <a href="Home.aspx" class="navbar-brand">
+						    <small>
+							    <i class="fa fa-line-chart"></i>
+							    Ace Admin
+						    </small>
+					    </a>
+				    </div>
+
+				    <div class="navbar-buttons navbar-header pull-right" role="navigation">
+					    <ul class="nav ace-nav">
+						    <li class="grey dropdown-modal">
+							    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								    <i class="ace-icon fa fa-tasks"></i>
+								    <span class="badge badge-grey">4</span>
+							    </a>
+
+							    <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								    <li class="dropdown-header">
+									    <i class="ace-icon fa fa-check"></i>
+									    4 Tasks to complete
+								    </li>
+
+								    <li class="dropdown-content">
+									    <ul class="dropdown-menu dropdown-navbar">
+										    <li>
+											    <a href="#">
+												    <div class="clearfix">
+													    <span class="pull-left">Bug Fixes</span>
+													    <span class="pull-right">90%</span>
+												    </div>
+
+												    <div class="progress progress-mini progress-striped active">
+													    <div style="width:90%" class="progress-bar progress-bar-success"></div>
+												    </div>
+											    </a>
+										    </li>
+									    </ul>
+								    </li>
+
+								    <li>
+									    <a href="#">
+										    <div class="clearfix">
+											    <span class="pull-left">
+												    <i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+												    New Comments
+											    </span>
+											    <span class="pull-right badge badge-info">+12</span>
+										    </div>
+									    </a>
+								    </li>
+								    <li>
+									    <a href="#" class="clearfix">
+										    <img src="assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+										    <span class="msg-body">
+											    <span class="msg-title">
+												    <span class="blue">Alex:</span>
+												    Ciao sociis natoque penatibus et auctor ...
+											    </span>
+
+											    <span class="msg-time">
+												    <i class="ace-icon fa fa-clock-o"></i>
+												    <span>a moment ago</span>
+											    </span>
+										    </span>
+									    </a>
+								    </li>
+								    <li class="dropdown-footer">
+									    <a href="#">
+										    See tasks with details
+										    <i class="ace-icon fa fa-arrow-right"></i>
+									    </a>
+								    </li>
+							    </ul>
+						    </li>
+
+						    <li class="green dropdown-modal">
+							    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								    <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
+								    <span class="badge badge-success">5</span>
+							    </a>
+
+							    <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+								    <li class="dropdown-header">
+									    <i class="ace-icon fa fa-envelope-o"></i>
+									    5 Messages
+								    </li>
+
+
+
+							    </ul>
+						    </li>
+
+						    <li class="light-blue dropdown-modal">
+							    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								    <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+								    <span class="user-info">
+									    <small>Welcome,</small>
+                                        <asp:Label ID="username" runat="server" Text="Label"></asp:Label>
+								    </span>
+
+								    <i class="ace-icon fa fa-caret-down"></i>
+							    </a>
+
+							    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								    <li>
+									    <a href="#">
+										    <i class="ace-icon fa fa-cog"></i>
+										    Settings
+									    </a>
+								    </li>
+
+								    <li>
+									    <a href="Add_User.aspx">
+										    <i class="ace-icon fa fa-user"></i>
+										    Profile
+									    </a>
+								    </li>
+
+								    <li class="divider"></li>
+
+								    <li>
+									    <a href="#">
+										    <i class="ace-icon fa fa-power-off"></i>
+										    Logout
+									    </a>
+								    </li>
+							    </ul>
+						    </li>
+					    </ul>
+				    </div>
+			    </div><!-- /.navbar-container -->
+		    </div>
+            <div class="main-container ace-save-state" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.loadState('main-container')}catch(e){}
+			</script>
+            <%-- side bar --%>
+			<div id="sidebar" class="sidebar responsive ace-save-state">
+				<script type="text/javascript">
+					try{ace.settings.loadState('sidebar')}catch(e){}
+				</script>
+
+				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+						<button class="btn btn-success">
+							<i class="ace-icon fa fa-signal"></i>
+						</button>
+
+						<button class="btn btn-info">
+							<i class="ace-icon fa fa-pencil"></i>
+						</button>
+
+						<button class="btn btn-warning">
+							<i class="ace-icon fa fa-users"></i>
+						</button>
+
+						<button class="btn btn-danger">
+							<i class="ace-icon fa fa-cogs"></i>
+						</button>
+					</div>
+
+					<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+						<span class="btn btn-success"></span>
+
+						<span class="btn btn-info"></span>
+
+						<span class="btn btn-warning"></span>
+
+						<span class="btn btn-danger"></span>
+					</div>
+				</div><!-- /.sidebar-shortcuts -->
+
+				<ul class="nav nav-list">
+                    <%-- Home --%>
+					<li runat = "server" id="Home">
+						<a runat = "server" href="Home.aspx">
+							<i class="menu-icon fa fa-home home-icon"></i>
+							<span class="menu-text"> Home </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
+
+                    <%-- Supplier --%>
+                    <li runat="server" id="Supplier">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-user"></i>
+							<span class="menu-text"> Suppliers </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+                        <ul class="submenu">
+							<li runat = "server" id="AddSupplier">
+								<a runat = "server" href="Add_Supplier.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Add Supplier
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+
+						<ul class="submenu">
+							<li runat = "server" id="UpdateSupplier">
+								<a runat = "server" href="Update_Supplier.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Update Supplier
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+                        
+                        <ul class="submenu">
+							<li runat = "server" id="SearchSupplier">
+								<a runat = "server" href="Search_Supplier.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Search Supplier
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+					</li>
+
+                    <%-- Buyer --%>
+                    <li runat="server" id="Buyers">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-user"></i>
+							<span class="menu-text"> Buyers </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+                        <ul class="submenu">
+							<li runat = "server" id="AddBuyer">
+								<a runat = "server" href="Add_Buyer.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Add Buyer
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+
+						<ul class="submenu">
+							<li runat = "server" id="UpdateBuyer">
+								<a runat = "server" href="Update_Buyer.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Update Buyer
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+                        
+                        <ul class="submenu">
+							<li runat = "server" id="SearchBuyer">
+								<a runat = "server" href="Search_Buyer.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Search Buyer
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+					</li>
+
+
+                    <%-- Purchase Good --%>
+                    <li runat="server" id="Purchases">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-shopping-cart"></i>
+							<span class="menu-text"> Purchases </span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+                        <ul class="submenu">
+							<li runat = "server" id="AddPurchase">
+								<a runat = "server" href="Add_PurchaseGood.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Add Purchase
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+
+						<ul class="submenu">
+							<li runat = "server" id="UpdatePurchase">
+								<a runat = "server" href="Update_PurchaseGood.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Update Purchase
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+                        
+                        <ul class="submenu">
+							<li runat = "server" id="SearchPurchase">
+								<a runat = "server" href="Search_PurchaseGood.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Search Purchase
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
+					</li>
+
+					
+				</ul><!-- /.nav-list -->
+
+				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+					<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+				</div>
+			</div>
+
+			<div class="main-content">
+				<div class="main-content-inner">
+					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                        <asp:ContentPlaceHolder ID="breadcrumb" runat="server">
+                            <!-- /.breadcrumb -->
+                        </asp:ContentPlaceHolder>
+					</div>
+
+					<div class="page-content" style="padding-bottom: 0px;">
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="page-header">
+                                    <asp:ContentPlaceHolder ID="Form_Header" runat="server">
+                                        <%--form header--%>
+                                    </asp:ContentPlaceHolder>
+									
+								</div>
+                                    
+                                <div>
+                                    <asp:ContentPlaceHolder ID="Content" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div>
+			</div><!-- /.main-content -->
+
+
+			<!--Footer-->
+			<div class="footer">
+				<div class="footer-inner">
+					<div class="footer-content">
+						<span class="action-buttons">
+							<a href="#">
+								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+							</a>
+
+							<a href="#">
+								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div>
+
+    </form>
+
+    <!-- basic scripts -->
+    <script src="assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+		if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){$("body").hide().fadeIn(500);});
+	</script>
+</body>
+</html>
