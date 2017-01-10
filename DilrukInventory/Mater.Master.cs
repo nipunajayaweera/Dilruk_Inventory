@@ -11,12 +11,12 @@ namespace DilrukInventory
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserName"] == null)
-            {
-                //Session["UserName"] = "";
-                Response.Redirect("Login.aspx");
-            }
-            username.Text = Session["UserName"].ToString();
+            //if (Session["UserName"] == null)
+            //{
+            //    //Session["UserName"] = "";
+            //    Response.Redirect("Login.aspx");
+            //}
+            //username.Text = Session["UserName"].ToString();
 
             if (Request.Url.AbsolutePath.EndsWith("Home.aspx"))
             {

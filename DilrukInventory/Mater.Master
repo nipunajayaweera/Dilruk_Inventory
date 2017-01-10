@@ -21,7 +21,7 @@
 
 	<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
 	<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
-
+    <script src="scripts/Validation.js"></script>
 	<!-- ace settings handler -->
 	<script src="assets/js/ace-extra.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -460,5 +460,17 @@
 	<script type="text/javascript">
 		$(document).ready(function(){$("body").hide().fadeIn(500);});
 	</script>
+
+
+     <script>
+         function Quantity_ClientValidate(source, args) {
+            var numOfWords = args.Value.split(" ");
+            args.IsValid = numOfWords.length <= 1;
+
+            if (!args.Value.match(/^\d+$/)) {
+                args.IsValid = false;
+            }
+        }
+    </script>
 </body>
 </html>

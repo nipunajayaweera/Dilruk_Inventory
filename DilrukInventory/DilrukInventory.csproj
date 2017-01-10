@@ -288,6 +288,7 @@
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\jquery-1.9.1.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\Validation.js" />
     <Content Include="Search_Buyer.aspx" />
     <Content Include="Search_PurchaseGood.aspx" />
     <Content Include="Search_Supplier.aspx" />

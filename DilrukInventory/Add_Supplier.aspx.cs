@@ -33,6 +33,7 @@ namespace DilrukInventory
                 };
 
                 db.Supliers.Add(sup);
+                db.SaveChanges();
             }
             catch (Exception ex)
             {

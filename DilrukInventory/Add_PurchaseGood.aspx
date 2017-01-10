@@ -28,7 +28,8 @@
 		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Item </label>
 
 		        <div class="col-sm-9">
-			        <asp:TextBox type="text" ID="item" runat="server" placeholder="Item" class="col-xs-10 col-sm-5"></asp:TextBox>
+			        <asp:TextBox type="text" ID="item" runat="server" placeholder="Item" class="col-xs-10 col-sm-5"></asp:TextBox>&nbsp; &nbsp; &nbsp;
+                    <asp:RequiredFieldValidator controltovalidate="item" ID="RequiredFieldValidator1" runat="server" ForeColor="#B50128" ErrorMessage="Item Field Can't Empty."></asp:RequiredFieldValidator>
 		        </div>
 	        </div>
 
@@ -36,15 +37,23 @@
 		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Date </label>
 
 		        <div class="col-sm-9">
-			        <asp:TextBox type="text" ID="date" runat="server" placeholder="Date" class="col-xs-10 col-sm-5"></asp:TextBox>
+                    <div>
+                        <asp:Calendar ID="Calendar1" runat="server" Visible="False" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+                    </div>
+			        <asp:TextBox type="text" ID="date" runat="server" placeholder="Date" class="col-xs-10 col-sm-5" Enabled="False"></asp:TextBox>
+                    <asp:Button ID="Button1" runat="server" Text="Date" onclick="LinkButton1_Click"/>&nbsp; &nbsp; &nbsp;
+                    <asp:RequiredFieldValidator controltovalidate="item" ID="RequiredFieldValidator2" runat="server" ForeColor="#B50128" ErrorMessage="Date Field Can't Empty."></asp:RequiredFieldValidator>
+
 		        </div>
 	        </div>
 
-	        <div class="form-group">
+            <div class="form-group">
 		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Supplier </label>
 
 		        <div class="col-sm-9">
-                    <asp:TextBox type="text" ID="supplier" runat="server" placeholder="Supplier" class="col-xs-10 col-sm-5"></asp:TextBox>
+                    <asp:DropDownList ID="DropDownList1" runat="server" class="col-xs-10 col-sm-5"></asp:DropDownList>&nbsp; &nbsp; &nbsp;
+                    <asp:RequiredFieldValidator controltovalidate="DropDownList1" InitialValue="Select" ID="RequiredFieldValidator3" ForeColor="#B50128" runat="server" ErrorMessage="Supplier Field Can't Empty."></asp:RequiredFieldValidator>
+
 		        </div>
 	        </div>
 
@@ -52,7 +61,11 @@
 		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Price Per Kg </label>
 
 		        <div class="col-sm-9">
-                    <asp:TextBox type="text" ID="PricePerKg" runat="server" placeholder="Price Per Kg" class="col-xs-10 col-sm-5"></asp:TextBox>
+                    <asp:TextBox type="text" ID="PricePerKg" runat="server" placeholder="Price Per Kg" class="col-xs-10 col-sm-5"></asp:TextBox>&nbsp; &nbsp; &nbsp;
+                    <asp:RequiredFieldValidator controltovalidate="PricePerKg" ID="RequiredFieldValidator4" runat="server" ForeColor="#B50128" ErrorMessage="This Field Can't Empty."></asp:RequiredFieldValidator><br />&nbsp; &nbsp; &nbsp;
+                    <asp:CompareValidator ID="CompareValidator2" ControlToValidate="PricePerKg" runat="server" Type="Double" ForeColor="#B50128" ErrorMessage="Numbers Only"></asp:CompareValidator>
+
+
 		        </div>
 	        </div>
 
@@ -60,22 +73,21 @@
 		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Quantity </label>
 
 		        <div class="col-sm-9">
-                    <asp:TextBox type="text" ID="Quantity" runat="server" placeholder="Quantity" class="col-xs-10 col-sm-5"></asp:TextBox>
+                    <asp:TextBox type="text" ID="Quantity" runat="server" placeholder="Quantity" class="col-xs-10 col-sm-5"></asp:TextBox>&nbsp; &nbsp; &nbsp;
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="Quantity" runat="server" ForeColor="#B50128" ErrorMessage="This Field Can't Empty."></asp:RequiredFieldValidator><br />&nbsp; &nbsp; &nbsp;
+                    <asp:CompareValidator ID="CompareValidator1" ControlToValidate="Quantity" runat="server" Type="Double" ForeColor="#B50128" ErrorMessage="Numbers Only"></asp:CompareValidator>
 		        </div>
 	        </div>
 
             <div class="clearfix form-actions">
 				<div class="col-md-offset-4 col-md-8">
-					<button class="btn btn-info" type="button">
-						<i class="ace-icon fa fa-check bigger-110"></i>
-						Submit
-					</button>
+                    <asp:Button ID="Submit" runat="server" class="btn btn-info" Text="Submit" OnClick="Submit_Click" />
+					
 
 					&nbsp; &nbsp; &nbsp;
 					<button class="btn" type="reset">
 						<i class="ace-icon fa fa-undo bigger-110"></i>
-						Reset
-					</button>
+						Reset</button>
 				</div>
 			</div>
 

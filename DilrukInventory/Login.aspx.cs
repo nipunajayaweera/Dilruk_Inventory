@@ -30,7 +30,7 @@ namespace DilrukInventory
                     {
                         if (usr[0].Password == txtpassword.Text)
                         {
-                            if (usr[0].Type.Equals("ADMIN"))
+                            if (usr[0].Type.Equals("Admin     "))
                             {
                                 Session["UserName"] = usr[0].Username;
                                 Label1.Text = "Pleace Wait";
