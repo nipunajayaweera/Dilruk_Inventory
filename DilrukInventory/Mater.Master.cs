@@ -37,6 +37,11 @@ namespace DilrukInventory
                 Supplier.Attributes["class"] = "active open";
                 SearchSupplier.Attributes["class"] = "active";
             }
+            else if (Request.Url.AbsolutePath.EndsWith("Supplier_Orders.aspx"))
+            {
+                Supplier.Attributes["class"] = "active open";
+                SupplierOreder.Attributes["class"] = "active";
+            }
             else if (Request.Url.AbsolutePath.EndsWith("Add_Buyer.aspx"))
             {
                 Buyers.Attributes["class"] = "active open";

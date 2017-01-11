@@ -276,6 +276,19 @@
 								<b class="arrow"></b>
 							</li>
 						</ul>
+
+                        <ul class="submenu">
+							<li runat = "server" id="SupplierOreder">
+								<a runat = "server" href="Supplier_Orders.aspx">
+									<i class="menu-icon fa fa-arrow-right"></i>
+									<span class="menu-text">
+								        Supplier Orders
+							        </span>
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
 					</li>
 
                     <%-- Buyer --%>

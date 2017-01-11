@@ -111,6 +111,7 @@
   <ItemGroup>
     <Content Include="Add_Buyer.aspx" />
     <Content Include="Add_PurchaseGood.aspx" />
+    <Content Include="Add_Supplier_Order.aspx" />
     <Content Include="Add_User.aspx" />
     <Content Include="assets\Add_Buyer.aspx" />
     <Content Include="assets\css\ace-ie.min.css" />
@@ -292,6 +293,7 @@
     <Content Include="Search_Buyer.aspx" />
     <Content Include="Search_PurchaseGood.aspx" />
     <Content Include="Search_Supplier.aspx" />
+    <Content Include="Supplier_Orders.aspx" />
     <Content Include="test.aspx" />
     <Content Include="Update_PurchaseGood.aspx" />
     <Content Include="Update_Buyer.aspx" />
@@ -327,6 +329,13 @@
     </Compile>
     <Compile Include="Add_PurchaseGood.aspx.designer.cs">
       <DependentUpon>Add_PurchaseGood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Supplier_Order.aspx.cs">
+      <DependentUpon>Add_Supplier_Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Supplier_Order.aspx.designer.cs">
+      <DependentUpon>Add_Supplier_Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Add_User.aspx.cs">
       <DependentUpon>Add_User.aspx</DependentUpon>
@@ -428,6 +437,13 @@
     </Compile>
     <Compile Include="Suplier.cs">
       <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier_Orders.aspx.cs">
+      <DependentUpon>Supplier_Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Supplier_Orders.aspx.designer.cs">
+      <DependentUpon>Supplier_Orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
