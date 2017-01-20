@@ -85,7 +85,6 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Entity.Design.Extensibility, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Entity.Design" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -248,10 +247,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DB1.cs</LastGenOutput>
-    </Content>
     <Content Include="Error_404.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Login.aspx" />
@@ -277,13 +272,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="DB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DB.edmx.diagram">
-      <DependentUpon>DB.edmx</DependentUpon>
-    </Content>
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -295,11 +283,29 @@
     <Content Include="Search_Supplier.aspx" />
     <Content Include="Supplier_Orders.aspx" />
     <Content Include="test.aspx" />
+    <Content Include="UITestModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UITestModel.edmx</DependentUpon>
+      <LastGenOutput>UITestModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="UITestModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UITestModel.edmx</DependentUpon>
+      <LastGenOutput>UITestModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Update_PurchaseGood.aspx" />
     <Content Include="Update_Buyer.aspx" />
     <Content Include="Update_Supplier.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
+    <Content Include="Web.config" />
+    <EntityDeploy Include="UITestModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UITestModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="UITestModel.edmx.diagram">
+      <DependentUpon>UITestModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -311,9 +317,6 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Add_Supplier.aspx" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add_Buyer.aspx.cs">
@@ -352,22 +355,7 @@
       <DependentUpon>Add_Buyer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Buyer.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB.Context.cs" />
-    <Compile Include="DB.cs" />
-    <Compile Include="DB.Designer.cs">
-      <DependentUpon>DB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DB1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.edmx</DependentUpon>
+      <DependentUpon>UITestModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Error_404.aspx.cs">
       <DependentUpon>Error_404.aspx</DependentUpon>
@@ -377,7 +365,7 @@
       <DependentUpon>Error_404.aspx</DependentUpon>
     </Compile>
     <Compile Include="GoodsStock.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>UITestModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -409,10 +397,10 @@
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="PurchaseGood.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>UITestModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ReturnGood.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>UITestModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Search_Buyer.aspx.cs">
       <DependentUpon>Search_Buyer.aspx</DependentUpon>
@@ -436,7 +424,7 @@
       <DependentUpon>Search_Supplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="Suplier.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>UITestModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Supplier_Orders.aspx.cs">
       <DependentUpon>Supplier_Orders.aspx</DependentUpon>
@@ -445,12 +433,30 @@
     <Compile Include="Supplier_Orders.aspx.designer.cs">
       <DependentUpon>Supplier_Orders.aspx</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>UITestModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UITestModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UITestModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UITestModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UITestModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UITestModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UITestModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Update_PurchaseGood.aspx.cs">
       <DependentUpon>Update_PurchaseGood.aspx</DependentUpon>
@@ -474,7 +480,7 @@
       <DependentUpon>Update_Supplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>UITestModel.tt</DependentUpon>
     </Compile>
     <Compile Include="WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
