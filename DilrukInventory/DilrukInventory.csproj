@@ -252,6 +252,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\calendar-blue.css" />
+    <Content Include="Create_Product.aspx" />
     <Content Include="DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DB1.cs</LastGenOutput>
@@ -372,6 +373,13 @@
     </Compile>
     <Compile Include="Buyer.cs">
       <DependentUpon>UITestModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Product.aspx.cs">
+      <DependentUpon>Create_Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Create_Product.aspx.designer.cs">
+      <DependentUpon>Create_Product.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error_404.aspx.cs">
       <DependentUpon>Error_404.aspx</DependentUpon>

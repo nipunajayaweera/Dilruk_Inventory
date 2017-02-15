@@ -44,7 +44,7 @@ namespace DilrukInventory
             {
                 try
                 {
-                    DateTime dob = DateTime.Parse(Request.Form[TextBox1.UniqueID]);
+                    DateTime dob = DateTime.Parse(Request.Form[datepicker.UniqueID]);
                     using (var db = new UITestEntities())
                     {
                         var count = db.PurchaseGoods.Count() + 1;

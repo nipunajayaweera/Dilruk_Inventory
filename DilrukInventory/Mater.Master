@@ -13,6 +13,7 @@
 
 	<!-- page specific plugin styles -->
     <script src="scripts/jquery-1.12.4.min.js"></script>
+    
 	<!-- text fonts -->
 	<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
 

@@ -11,9 +11,10 @@ namespace DilrukInventory
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class ReturnGood
     {
+        [Key]
         public string ID { get; set; }
         public string Item { get; set; }
         public System.DateTime Date { get; set; }

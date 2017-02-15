@@ -11,9 +11,10 @@ namespace DilrukInventory
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class GoodsStock
     {
+        [Key]
         public string ID { get; set; }
         public string Item { get; set; }
         public double AvailableStock { get; set; }

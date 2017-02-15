@@ -2,25 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">Add Purchase Goods
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    
-    <script src="scripts/jquery.dynDateTime.min.js"></script>
-
-    <script src="scripts/calendar-en.min.js"></script>
-    <link href="Content/calendar-blue.css" rel="stylesheet" />
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#Content_TextBox1").dynDateTime({
-                showsTime: true,
-                ifFormat: "%Y/%m/%d %H:%M",
-                daFormat: "%l;%M %p, %e %m,  %Y",
-                align: "BR",
-                electric: false,
-                singleClick: false,
-                displayArea: ".siblings('.dtcDisplayArea')",
-                button: ".next()"
-            });
-        });
-    </script>
+    <script src="scripts/jquery-ui-1.12.1.js"></script>
+    <script>
+      $( function() {
+          $("#Content_datepicker").datepicker();
+      } );
+  </script>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="breadcrumb" runat="server">
@@ -60,8 +47,7 @@
                     <div>
 
                         
-                        <asp:TextBox ID="TextBox1" runat="server" ReadOnly = "true"></asp:TextBox>
-                        <img src="calender.png" />
+                        <asp:TextBox id="datepicker" runat="server" ReadOnly = "true"></asp:TextBox>
                         <%--<asp:Calendar ID="Calendar1" runat="server" Visible="False" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>--%>
                     </div>
 			        <%--<asp:TextBox type="text" ID="date" runat="server" placeholder="Date" class="col-xs-10 col-sm-5" Enabled="False"></asp:TextBox>--%>
