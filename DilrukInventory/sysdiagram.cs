@@ -12,16 +12,12 @@ namespace DilrukInventory
     using System;
     using System.Collections.Generic;
     
-    public partial class Buyer
+    public partial class sysdiagram
     {
-        public int ID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string Country { get; set; }
-        public string Telephone { get; set; }
-        public string Fax { get; set; }
-        public string Email { get; set; }
-        public string Remarks { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
