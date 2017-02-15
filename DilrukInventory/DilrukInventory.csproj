@@ -140,7 +140,11 @@
     <Content Include="assets\css\login style.css" />
     <Content Include="assets\css\prettify.min.css" />
     <Content Include="assets\css\select2.min.css" />
+    <Content Include="assets\css\snack-bar.css" />
     <Content Include="assets\css\ui.jqgrid.min.css" />
+    <Content Include="assets\dist\sweetalert-dev.js" />
+    <Content Include="assets\dist\sweetalert.css" />
+    <Content Include="assets\dist\sweetalert.min.js" />
     <Content Include="assets\font-awesome\4.5.0\css\font-awesome.min.css" />
     <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
@@ -248,6 +252,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\calendar-blue.css" />
     <Content Include="DB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DB1.cs</LastGenOutput>
@@ -287,8 +292,15 @@
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\calendar-en.min.js" />
+    <Content Include="scripts\jquery-1.12.4.js" />
+    <Content Include="scripts\jquery-1.12.4.min.js" />
     <Content Include="scripts\jquery-1.9.1.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\jquery-ui-1.12.1.js" />
+    <Content Include="scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="scripts\jquery.dynDateTime.min.js" />
+    <Content Include="scripts\js-ballon.js" />
     <Content Include="scripts\Validation.js" />
     <Content Include="Search_Buyer.aspx" />
     <Content Include="Search_PurchaseGood.aspx" />

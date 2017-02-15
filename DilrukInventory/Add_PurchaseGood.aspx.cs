@@ -33,16 +33,6 @@ namespace DilrukInventory
 
 
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Calendar1.Visible = true;
-        }
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-            date.Text = Calendar1.SelectedDate.ToLongDateString();
-            Calendar1.Visible = false;
-
-        }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
@@ -54,13 +44,15 @@ namespace DilrukInventory
             {
                 try
                 {
+                    DateTime dob = DateTime.Parse(Request.Form[TextBox1.UniqueID]);
                     using (var db = new UITestEntities())
                     {
+                        var count = db.PurchaseGoods.Count() + 1;
                         PurchaseGood purch = new PurchaseGood
                         {
-                            ID = "3",
+                            ID = count.ToString(),
                             Item = item.Text,
-                            Date = Calendar1.SelectedDate,
+                            Date = dob.Date,
                             Supplier = DropDownList1.SelectedValue,
                             PricePerKg = Convert.ToDouble(PricePerKg.Text),
                             Quantity = Convert.ToDouble(Quantity.Text)
@@ -70,6 +62,8 @@ namespace DilrukInventory
                         db.PurchaseGoods.Add(purch);
                         db.SaveChanges();
                     }
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "<script> function myFunction() {var x = document.getElementById('snackbar') x.className = 'show';setTimeout(function(){ x.className = x.className.replace('show', ''); }, 3000);}</ script > ", true);
+                    Response.Redirect("Add_PurchaseGood.aspx",false);
                 }
                 catch (Exception ex)
                 {
@@ -77,7 +71,7 @@ namespace DilrukInventory
                     throw;
                 }
             }
-            
+
         }
     }
 }

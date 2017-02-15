@@ -2,6 +2,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="server">Add Purchase Goods
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    
+    <script src="scripts/jquery.dynDateTime.min.js"></script>
+
+    <script src="scripts/calendar-en.min.js"></script>
+    <link href="Content/calendar-blue.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Content_TextBox1").dynDateTime({
+                showsTime: true,
+                ifFormat: "%Y/%m/%d %H:%M",
+                daFormat: "%l;%M %p, %e %m,  %Y",
+                align: "BR",
+                electric: false,
+                singleClick: false,
+                displayArea: ".siblings('.dtcDisplayArea')",
+                button: ".next()"
+            });
+        });
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="breadcrumb" runat="server">
     <ul class="breadcrumb">
@@ -38,10 +58,14 @@
 
 		        <div class="col-sm-9">
                     <div>
-                        <asp:Calendar ID="Calendar1" runat="server" Visible="False" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+
+                        
+                        <asp:TextBox ID="TextBox1" runat="server" ReadOnly = "true"></asp:TextBox>
+                        <img src="calender.png" />
+                        <%--<asp:Calendar ID="Calendar1" runat="server" Visible="False" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>--%>
                     </div>
-			        <asp:TextBox type="text" ID="date" runat="server" placeholder="Date" class="col-xs-10 col-sm-5" Enabled="False"></asp:TextBox>
-                    <asp:Button ID="Button1" runat="server" Text="Date" onclick="LinkButton1_Click"/>&nbsp; &nbsp; &nbsp;
+			        <%--<asp:TextBox type="text" ID="date" runat="server" placeholder="Date" class="col-xs-10 col-sm-5" Enabled="False"></asp:TextBox>--%>
+                    <%--<asp:Button ID="Button1" runat="server" Text="Date" onclick="LinkButton1_Click"/>&nbsp; &nbsp; &nbsp;--%>
                     <asp:RequiredFieldValidator controltovalidate="item" ID="RequiredFieldValidator2" runat="server" ForeColor="#B50128" ErrorMessage="Date Field Can't Empty."></asp:RequiredFieldValidator>
 
 		        </div>

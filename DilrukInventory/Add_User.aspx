@@ -49,19 +49,49 @@
 
             <div class="clearfix form-actions">
 				<div class="col-md-offset-4 col-md-8">
-					<button class="btn btn-info" type="button">
-						<i class="ace-icon fa fa-check bigger-110"></i>
-						Submit
-					</button>
+                    <asp:Button ID="Button1" runat="server" Text="Submit" class="btn btn-info" />
 
 					&nbsp; &nbsp; &nbsp;
 					<button class="btn" type="reset">
 						<i class="ace-icon fa fa-undo bigger-110"></i>
-						Reset
-					</button>
+						Reset</button>
 				</div>
 			</div>
 
         </div>
     </div>
+    <script type="text/javascript">
+
+    $('#form1').submit(function(){
+
+        // block form
+        e.preventDefault(e);
+        $("#Button1").bind("click", function () {
+            var user = {};
+            user.Username = $("#Username").val();
+            user.Password = $("#Password").val();
+            user.Type = $("#Type").val();
+            $.ajax({
+                type: "POST",
+                url: "Add_User.aspx/Save_User",
+                data: '{user: ' + JSON.stringify(user) + '}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    alert("User has been added successfully.");
+                    window.location.reload();
+                }
+            });
+            return false;
+        });
+
+        $.post('Add_User.aspx/Save_User', $('#form1').serialize(), function (data) {
+            //call back happens here.  Unblock form/show result
+        });
+
+        return false; // this prevents regular post, forcing ajax post.
+
+    });
+
+    </script>
 </asp:Content>

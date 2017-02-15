@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 	<!-- page specific plugin styles -->
-
+    <script src="scripts/jquery-1.12.4.min.js"></script>
 	<!-- text fonts -->
 	<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
 
@@ -24,6 +24,12 @@
     <script src="scripts/Validation.js"></script>
 	<!-- ace settings handler -->
 	<script src="assets/js/ace-extra.min.js"></script>
+
+	<!-- sweetalert -->
+
+    <link href="assets/dist/sweetalert.css" rel="stylesheet" />
+    
+    <link href="assets/css/snack-bar.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
         
     </asp:ContentPlaceHolder>
@@ -461,9 +467,9 @@
 		</div>
 
     </form>
-
+    <div id="snackbar">Some text some message..</div>
     <!-- basic scripts -->
-    <script src="assets/js/jquery-2.1.4.min.js"></script>
+   <%-- <script src="assets/js/jquery-2.1.4.min.js"></script>--%>
     <script type="text/javascript">
 		if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 	</script>
