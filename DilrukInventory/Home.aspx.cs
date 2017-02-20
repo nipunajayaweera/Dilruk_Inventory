@@ -11,25 +11,6 @@ namespace DilrukInventory
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                using (UITestEntities ctx = new UITestEntities())
-                {
-
-                    ctx.Database.Connection.Open();
-                    var a = ctx.Users.Select(o=>o).ToList<User>();
-                        
-                        
-                       
-                    TextBox1.Text = a[0].Username;
-
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
            
         }
     }

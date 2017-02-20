@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,17 +33,22 @@ namespace DilrukInventory
             }
         }
         [WebMethod]
-        public static List<PurchaseGood> LoadTypeDropDown(int id)
+        public static string LoadTypeDropDown(int id)
         {
             //edit this --------------------------------------------------------------------------------------------------------------------------
             using (var db = new UITestEntities())
             {
                 var good = from c in db.PurchaseGoods
                            orderby c.Item
-                           select c;
+                           select new { c.ID, c.Item };
                 
-                return good.ToList();
+                return JsonConvert.SerializeObject(good.ToList());
             }
+        }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

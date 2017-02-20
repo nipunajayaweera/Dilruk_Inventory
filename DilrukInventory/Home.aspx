@@ -21,5 +21,5 @@
 	</h1>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Content" runat="server">
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    
 </asp:Content>

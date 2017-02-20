@@ -42,7 +42,7 @@
 
             <div class="clearfix form-actions">
 				<div class="col-md-offset-4 col-md-8">
-                    
+                    <asp:Button ID="Submit" runat="server" class="btn btn-info" Text="Search" OnClick="Search_Click" />
 
 					&nbsp; &nbsp; &nbsp;
 					<button class="btn" type="reset">

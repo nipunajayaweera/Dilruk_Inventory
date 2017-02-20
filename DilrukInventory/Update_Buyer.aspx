@@ -98,16 +98,12 @@
 
             <div class="clearfix form-actions">
 				<div class="col-md-offset-4 col-md-8">
-					<button class="btn btn-info" type="button">
-						<i class="ace-icon fa fa-check bigger-110"></i>
-						Submit
-					</button>
+                    <asp:Button ID="Button1" class="btn btn-info" runat="server" Text="Save" OnClick="Button1_Click" />
 
 					&nbsp; &nbsp; &nbsp;
 					<button class="btn" type="reset">
 						<i class="ace-icon fa fa-undo bigger-110"></i>
-						Reset
-					</button>
+						Reset</button>
 				</div>
 			</div>
 

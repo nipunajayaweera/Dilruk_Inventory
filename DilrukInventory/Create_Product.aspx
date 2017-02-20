@@ -7,20 +7,31 @@
             var x = document.getElementById('<%=DropDownList1.ClientID %>').value;
             if (x != "Select a Item") {
                 document.getElementById("Content_DropDownList2").disabled = false;
-                PageMethods.LoadTypeDropDown(x, OnSuccess);
+                //PageMethods.LoadTypeDropDown(x, OnSuccess);
                 
+                $.ajax({
+                    type: "POST",
+                    url: "Create_Product.aspx/LoadTypeDropDown",
+                    data: '{id: ' + x + ' }',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        $("#Content_DropDownList2").empty().append($("<option></option>").val("0").html("Please select"));
+                        var obj = JSON.parse(data.d);
+                        $.each(obj, function () {
+                            $("#Content_DropDownList2").append($("<option></option>").val(this['ID']).html(this['Item']));
+                        });
+                    },
+                    error: function () {
+                        alert("Failed!");
+                    }
+                });
+
+
             } else {
                 document.getElementById('<%=DropDownList2.ClientID %>').disabled = true;
             }
 
-            
-        }
-        function OnSuccess(response) {
-            $('#Content_DropDownList2').empty();
-            $('#Content_DropDownList2').append("<option value='0'>Select </option>");
-            $.each(response.d, function (key, value) {
-                $('#Content_DropDownList2').append($("<option></option>").val(value.ID).html(value.Item));
-            });
         }
     </script>
 </asp:Content>
@@ -56,7 +67,7 @@
 		                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Type </label>
 		                <div class="col-sm-9">
 			                <asp:DropDownList ID="DropDownList2"  runat="server" class="col-xs-10 col-sm-5" Enabled="false"></asp:DropDownList>&nbsp; &nbsp; &nbsp;
-                            <%--<asp:RequiredFieldValidator controltovalidate="DropDownList1" InitialValue="Select a Item" ID="RequiredFieldValidator1" ForeColor="#B50128" runat="server" ErrorMessage="Supplier Field Can't Empty."></asp:RequiredFieldValidator>--%>
+                            <asp:RequiredFieldValidator controltovalidate="DropDownList2" InitialValue="Please select" ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
 		                </div>
 	                </div>
                 </ContentTemplate>
@@ -95,7 +106,7 @@
 
             <div class="clearfix form-actions">
 				<div class="col-md-offset-4 col-md-8">
-                    <%--<asp:Button ID="Submit" runat="server" class="btn btn-info" Text="Submit" OnClick="Submit_Click" />--%>
+                    <asp:Button ID="Submit" runat="server" class="btn btn-info" Text="Submit" OnClick="Submit_Click" />
 					
 
 					&nbsp; &nbsp; &nbsp;

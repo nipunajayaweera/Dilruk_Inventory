@@ -21,6 +21,7 @@ namespace DilrukInventory
             {
                 try
                 {
+                    buyer.ID = 1;
                     buyer.FirstName = fname.Text;
                     buyer.LastName = lname.Text;
                     buyer.Address = address.Text;

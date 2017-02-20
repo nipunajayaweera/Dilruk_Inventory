@@ -18,5 +18,10 @@ namespace DilrukInventory
         {
             Response.Redirect("Add_Supplier_Order.aspx");
         }
+
+        protected void Search_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
