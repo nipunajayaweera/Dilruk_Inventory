@@ -22,4 +22,67 @@
 	</h1>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Content" runat="server">
+    <div class="row">
+		<div class="col-xs-12">
+            <div>
+                <table class="table-hover table-striped" id="mytable">
+                    <thead>
+                        <tr>
+                            <td>FirstName</td>
+                            <td>LastName</td>
+                            <td>Address</td>
+                            <td>Telephone</td>
+                            <td>Fax</td>
+                            <td>Email</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <link href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>    
+    <script>
+        $(document).ready(function () {
+            $('#mytable').DataTable({
+                "ajax": {
+                    "url": "Search_Supplier.aspx/LoadTable",
+                    "type": "GET",
+                    "datatype": "json",
+                    "data" : "data"
+                },
+                "columns": [
+                    { "data": "FirstName", "autoWidth": true },
+                    { "data": "LastName", "autoWidth": true },
+                    { "data": "Address", "autoWidth": true },
+                    { "data": "Telephone", "autoWidth": true },
+                    { "data": "Fax", "autoWidth": true },
+                    { "data": "Email", "autoWidth": true }
+                ]
+            });
+        });
+
+        //$(document).ready(function () {
+        //    $.ajax({
+        //        type: "GET",
+        //        dataType: "json",
+        //        url: "Search_Supplier.aspx/LoadTable",
+        //        success: function (data) {
+        //            var datatableVariable = $('#mytable').DataTable({
+        //                data: data,
+        //                columns: [
+        //                    { 'data': 'FirstName' },
+        //                    { 'data': 'LastName' },
+        //                    { 'data': 'Address' },
+        //                    { 'data': 'Telephone' },
+        //                    { 'data': 'Fax' },
+        //                    { 'data': 'Email' }
+        //                ]
+        //            });
+        //        }
+        //    });
+
+        //});
+    </script>
+
 </asp:Content>

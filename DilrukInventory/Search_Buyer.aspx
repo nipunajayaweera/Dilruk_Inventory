@@ -117,7 +117,7 @@
 				<div class="col-md-offset-4 col-md-8">
                     <%--<asp:Button ID="BuyerSaveBtn" class="btn btn-info" runat="server" Text="Search" onchange="Search()" />--%>
                     <%--<button class="btn btn-info" onclick="Search()">Search</button>--%>
-                    <p onclick="Search()">Click</p>
+                    <button type="button" class="btn btn-info" onclick="Search()">Search</button>
 					&nbsp; &nbsp; &nbsp;
 					<button class="btn" type="reset">
 						<i class="ace-icon fa fa-undo bigger-110"></i>
