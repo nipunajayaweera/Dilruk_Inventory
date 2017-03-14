@@ -3,12 +3,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script>
-        function myFunction() {
+        $(document).ready(function () {
+            $("#Content_DropDownList2").empty().append($("<option></option>").val("0").html("Please select Item"));
+            $("#Content_DropDownList4").empty().append($("<option></option>").val("0").html("Please select Item"));
+
+        });
+        function LoadItemtype() {
             var x = document.getElementById('<%=DropDownList1.ClientID %>').value;
             if (x != "Select a Item") {
                 document.getElementById("Content_DropDownList2").disabled = false;
+                document.getElementById("Content_DropDownList4").disabled = false;
                 //PageMethods.LoadTypeDropDown(x, OnSuccess);
-                
+
                 $.ajax({
                     type: "POST",
                     url: "Create_Product.aspx/LoadTypeDropDown",
@@ -17,9 +23,11 @@
                     dataType: "json",
                     success: function (data) {
                         $("#Content_DropDownList2").empty().append($("<option></option>").val("0").html("Please select"));
+                        $("#Content_DropDownList4").empty().append($("<option></option>").val("0").html("Please select"));
                         var obj = JSON.parse(data.d);
                         $.each(obj, function () {
                             $("#Content_DropDownList2").append($("<option></option>").val(this['ID']).html(this['Item']));
+                            $("#Content_DropDownList4").append($("<option></option>").val(this['ID']).html(this['Item']));
                         });
                     },
                     error: function () {
@@ -29,16 +37,18 @@
 
 
             } else {
+                $("#Content_DropDownList2").empty().append($("<option></option>").val("0").html("Please select"));
+                $("#Content_DropDownList4").empty().append($("<option></option>").val("0").html("Please select"));
                 document.getElementById('<%=DropDownList2.ClientID %>').disabled = true;
+                document.getElementById('<%=DropDownList4.ClientID %>').disabled = true;
             }
-
         }
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="breadcrumb" runat="server">
     <ul class="breadcrumb">
 		<li>
-			<i class="ace-icon fa fa-shopping-cart home-icon"></i>
+			<i class="ace-icon fa fa-cog home-icon"></i>
 			<a href="#">Create Product</a>
 		</li>
 	</ul>
@@ -56,7 +66,7 @@
             <div class="form-group">
 		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Item </label>
 		        <div class="col-sm-9">
-			        <asp:DropDownList ID="DropDownList1" onchange="myFunction()" runat="server" class="col-xs-10 col-sm-5"></asp:DropDownList>&nbsp; &nbsp; &nbsp;
+			        <asp:DropDownList ID="DropDownList1" onchange="LoadItemtype()" runat="server" class="col-xs-10 col-sm-5"></asp:DropDownList>&nbsp; &nbsp; &nbsp;
                     <asp:RequiredFieldValidator controltovalidate="DropDownList1" InitialValue="Select a Item" ID="RequiredFieldValidator3" ForeColor="#B50128" runat="server" ErrorMessage="Supplier Field Can't Empty."></asp:RequiredFieldValidator>
 		        </div>
 	        </div>
@@ -66,21 +76,30 @@
 	                <div class="form-group">
 		                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Type </label>
 		                <div class="col-sm-9">
-			                <asp:DropDownList ID="DropDownList2"  runat="server" class="col-xs-10 col-sm-5" Enabled="false"></asp:DropDownList>&nbsp; &nbsp; &nbsp;
+			                <asp:DropDownList ID="DropDownList2"  runat="server" class="col-xs-10 col-sm-5"></asp:DropDownList>&nbsp; &nbsp; &nbsp;
                             <asp:RequiredFieldValidator controltovalidate="DropDownList2" InitialValue="Please select" ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
 		                </div>
 	                </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
 
-            <%--<div class="form-group">
-		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Supplier </label>
-		        <div class="col-sm-9">
-                    <asp:DropDownList ID="DropDownList1" runat="server" class="col-xs-10 col-sm-5"></asp:DropDownList>&nbsp; &nbsp; &nbsp;
-                    <asp:RequiredFieldValidator controltovalidate="DropDownList1" InitialValue="Select" ID="RequiredFieldValidator3" ForeColor="#B50128" runat="server" ErrorMessage="Supplier Field Can't Empty."></asp:RequiredFieldValidator>
-
+            <div class="form-group">
+		        <div class="col-sm-offset-4 col-sm-9">
+                    <i class="fa fa-arrow-down fa-3x" style="color:#2b7dbc;" aria-hidden="true"></i>
 		        </div>
-	        </div>--%>
+	        </div>
+
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+	                <div class="form-group">
+		                <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Product Type </label>
+		                <div class="col-sm-9">
+			                <asp:DropDownList ID="DropDownList4"  runat="server" class="col-xs-10 col-sm-5" ></asp:DropDownList>&nbsp; &nbsp; &nbsp;
+                            <asp:RequiredFieldValidator controltovalidate="DropDownList2" InitialValue="Please select" ID="RequiredFieldValidator6" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>
+		                </div>
+	                </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
 
             <div class="form-group">
 		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Quentity </label>

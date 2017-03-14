@@ -13,6 +13,7 @@ namespace DilrukInventory
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             using (var db = new UITestEntities())
             {
                 if (!IsPostBack)
@@ -24,6 +25,7 @@ namespace DilrukInventory
                     DropDownList1.DataValueField = "ID";
                     DropDownList1.DataTextField = "Item";
                     DropDownList1.DataSource = good.ToList();
+                    
 
                     DataBind();
                     DropDownList1.Items.Insert(0, "Select a Item");

@@ -54,7 +54,7 @@
 					    <a href="Home.aspx" class="navbar-brand">
 						    <small>
 							    <i class="fa fa-line-chart"></i>
-							    Ace Admin
+							    Dilruk Inventory
 						    </small>
 					    </a>
 				    </div>
@@ -401,6 +401,15 @@
 						</ul>
 					</li>
 
+                    <%-- Create product --%>
+					<li runat = "server" id="Createproduct">
+						<a runat = "server" href="Create_Product.aspx">
+							<i class="menu-icon fa fa-cog"></i>
+							<span class="menu-text"> Create product </span>
+						</a>
+
+						<b class="arrow"></b>
+					</li>
 					
 				</ul><!-- /.nav-list -->
 

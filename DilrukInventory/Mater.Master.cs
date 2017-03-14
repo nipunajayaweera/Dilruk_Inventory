@@ -72,7 +72,10 @@ namespace DilrukInventory
                 Purchases.Attributes["class"] = "active open";
                 SearchPurchase.Attributes["class"] = "active";
             }
-
+            else if (Request.Url.AbsolutePath.EndsWith("Create_Product.aspx"))
+            {
+                Createproduct.Attributes["class"] = "active";
+            }
 
         }
     }
