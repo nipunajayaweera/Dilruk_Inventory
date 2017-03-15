@@ -31,7 +31,6 @@ namespace DilrukInventory
                     DropDownList1.Items.Insert(0, "Select a Item");
                 }
 
-
             }
         }
         [WebMethod]
