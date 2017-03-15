@@ -47,11 +47,11 @@ namespace DilrukInventory
                 Buyers.Attributes["class"] = "active open";
                 AddBuyer.Attributes["class"] = "active";
             }
-            else if (Request.Url.AbsolutePath.EndsWith("Update_Buyer.aspx"))
-            {
-                Buyers.Attributes["class"] = "active open";
-                UpdateBuyer.Attributes["class"] = "active";
-            }
+            //else if (Request.Url.AbsolutePath.EndsWith("Update_Buyer.aspx"))
+            //{
+            //    Buyers.Attributes["class"] = "active open";
+            //    UpdateBuyer.Attributes["class"] = "active";
+            //}
             else if (Request.Url.AbsolutePath.EndsWith("Search_Buyer.aspx"))
             {
                 Buyers.Attributes["class"] = "active open";

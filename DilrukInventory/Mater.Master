@@ -322,7 +322,7 @@
 							</li>
 						</ul>
 
-						<ul class="submenu">
+						<%--<ul class="submenu">
 							<li runat = "server" id="UpdateBuyer">
 								<a runat = "server" href="Update_Buyer.aspx">
 									<i class="menu-icon fa fa-arrow-right"></i>
@@ -333,7 +333,7 @@
 
 								<b class="arrow"></b>
 							</li>
-						</ul>
+						</ul>--%>
                         
                         <ul class="submenu">
 							<li runat = "server" id="SearchBuyer">

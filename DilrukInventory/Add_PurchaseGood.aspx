@@ -70,8 +70,6 @@
 		        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Item </label>
 
 		        <div class="col-sm-9">
-			        <%--<asp:TextBox type="text" ID="item" runat="server" placeholder="Item" class="col-xs-10 col-sm-5"></asp:TextBox>&nbsp; &nbsp; &nbsp;
-                    <asp:RequiredFieldValidator controltovalidate="item" ID="RequiredFieldValidator1" runat="server" ForeColor="#B50128" ErrorMessage="Item Field Can't Empty."></asp:RequiredFieldValidator>--%>
                     <asp:DropDownList ID="DropDownList2" onchange="LoadItemtype()" runat="server" class="col-xs-10 col-sm-5"></asp:DropDownList>
 		        </div>
 	        </div>

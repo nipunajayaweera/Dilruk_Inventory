@@ -30,6 +30,9 @@ namespace DilrukInventory
                 if (Fname != "" && Lname != "" && Country != "")
                 {
                     var buyer = db.Buyers.Where(o => o.FirstName == Fname && o.LastName == Lname && o.Country == Country).ToList();
+                    //var buyer = from c in db.Buyers
+                    //            where c.FirstName.Contains(Fname)
+                    //            select c;
                     return JsonConvert.SerializeObject(buyer);
                 }
                 else if (Fname != "" && Lname != "")
@@ -50,17 +53,26 @@ namespace DilrukInventory
                 }
                 else if (Fname != "")
                 {
-                    var buyer = db.Buyers.Where(o =>o.FirstName == Fname).ToList();
+                    //var buyer = db.Buyers.Where(o =>o.FirstName == Fname).ToList();
+                    var buyer = from c in db.Buyers
+                                where c.FirstName.Contains(Fname)
+                                select c;
                     return JsonConvert.SerializeObject(buyer);
                 }
                 else if (Lname != "")
                 {
-                    var buyer = db.Buyers.Where(o => o.LastName == Lname).ToList();
+                    //var buyer = db.Buyers.Where(o => o.LastName == Lname).ToList();
+                    var buyer = from c in db.Buyers
+                                where c.LastName.Contains(Lname)
+                                select c;
                     return JsonConvert.SerializeObject(buyer);
                 }
                 else if (Country != "")
                 {
-                    var buyer = db.Buyers.Where(o => o.Country == Country).ToList();
+                    //var buyer = db.Buyers.Where(o => o.Country == Country).ToList();
+                    var buyer = from c in db.Buyers
+                                where c.Country.Contains(Country)
+                                select c;
                     return JsonConvert.SerializeObject(buyer);
                 }
                 else

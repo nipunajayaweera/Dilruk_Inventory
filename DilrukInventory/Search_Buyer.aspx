@@ -5,7 +5,8 @@
     <script>
         $(document).ready(function () {
             $(document).on("click", ".Search-table", function (e) {
-                var id = this.id;
+                
+                //var id = this.id;
                 $.ajax({
                     type: "POST",
                     url: "Search_Buyer.aspx/Edit",
@@ -16,6 +17,8 @@
                 })});
             });
         function Search() {
+            $("#loading").css("display", "block");
+
             var F = document.getElementById('<%=fname.ClientID %>').value;
             var L = document.getElementById('<%=lname.ClientID %>').value;
             var C = document.getElementById('<%=country.ClientID %>').value;
@@ -55,11 +58,13 @@
 
                         content += "</tbody>"+
                                 "</table>"
+                        $("#loading").css("display", "none");
 
                         $('#tableDiv').append(content);
 
                     },
                     error: function () {
+                        $("#loading").css("display", "none");
                         alert("Server Error");
                     }
                 });
@@ -131,6 +136,9 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
+                <div class="col-sm-offset-5 col-md-1">
+                    <div id="loading" style="display:none;"><i class="fa fa-circle-o-notch fa-spin" style="font-size:55px;color: #2b7dbc;"></i></div>
+                </div>
                 <div class="col-xs-12" id="tableDiv">
                 </div>
             </ContentTemplate>
